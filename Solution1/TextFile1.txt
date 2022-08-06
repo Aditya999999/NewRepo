@@ -1,0 +1,16 @@
+﻿Tasks of 22th july:
+1.Perform array sorting using LINQ. 
+Sol: cs_con_ArraySorting_LINQ
+
+2.Show working of Synchronous & Asynchronous concepts using threads for any scenario.
+Sol: cs_con_SynchronousAsynchronousThread
+
+3.Perform arithmetic operations example using Lambda expressions.
+Sol: cs_con_ArithmeticOperationLambda
+
+4.Perform an example to print student details using anonymous types.
+Sol: cs_con_AnonymousFunction
+
+5.Define a class „salary‟ which will contain member variable Basic, TA, DA, HRA. Write a program using 
+  Constructor with default values for DA and HRA and calculate the salary of employee. 
+Sol: cs_con_EmployeeSalary

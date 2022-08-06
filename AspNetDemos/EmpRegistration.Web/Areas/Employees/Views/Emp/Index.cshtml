@@ -1,0 +1,203 @@
+﻿@{
+	<html>
+	<head> 
+	<!-- CSS only -->
+	
+
+			<script> 
+			function test()
+			{
+				var name=document.myform.uname.value;  
+				var phoneno=/^\d{10}$/; 
+				var emailID = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;;
+				var passw=  /^[A-Za-z]\w{7,14}$/;
+				var gender = document.querySelector('input[name="gender"]:checked');
+				//name
+				if (name==null || name=="")
+				{  
+					alert("Name can't be blank"); 
+								
+					return false;  
+				}
+				if (document.myform.uname.value.match(/[0-9]/)) 
+					{
+						alert("Avoid using numbers in name..");
+						return false;
+					}
+
+				if(!document.myform.mobilenumber.value.match(phoneno))
+				{
+					alert("input 10 digits mobile number");
+						return false;
+				}
+				if(!document.myform.mailID.value.match(emailID))
+				{
+					alert("input correct email");
+					return false;
+				}
+					   	
+				if(!document.myform.password.value.match(passw))
+				{
+					alert("Please enter password between 7 to 16 characters which contain only characters, numeric digits, underscore and first character must be a letter");
+					return false;
+				}
+
+				if(!document.myform.cnfpassword.value.match(document.myform.password.value))
+					{
+					alert("Password did not match.");
+					return false;
+					}
+								
+				if (gender === null) {
+					alert("Gender required!");
+					return false;
+				}
+				var selectElement = document.querySelector('#selCountry');
+				var output = selectElement.value;
+					if(!output || output == "select")
+					{
+						alert("Select country");
+						return false;
+					}
+				return true;
+								
+			} 
+
+			</script>  
+	</head>
+	<style>
+						*{
+					   	margin: 0;
+					   	box-sizing: border-box;
+					   	font-family: 'Poppins', sans-serif;
+						}
+						body{
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							min-height: 100vh;
+						}
+						table{
+							background-color: #ff33cc;
+							align-items: center;
+							margin-left:auto;
+							margin-right:auto;
+							table-layout: fixed;
+							width: 50%;
+							border-collapse: collapse;
+							border: 1px solid purple;
+						}
+
+						h2{
+							color: red;
+							font-size: 1.5em;
+							margin-left: 150px;
+							text-transform: uppercase;
+							text-align: center;
+							font-weight: 600;
+
+						}
+						.dropbtn {
+					  	background-color: #04AA6D;
+					  	color: white;
+					  	padding: 16px;
+					  	font-size: 16px;
+					  	border: none;
+					  	cursor: pointer;
+						}
+
+						.dropbtn:hover, .dropbtn:focus {
+					  	background-color: #3e8e41;
+						}
+
+						.dropdown {
+					  	float: left;
+					  	position: relative;
+					  	display: inline-block;
+						}
+
+						.dropdown-content {
+					  	display: none;
+					  	position: absolute;
+					  	background-color: #f1f1f1;
+					  	min-width: 160px;
+					  	overflow: auto;
+					  	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+					  	right: 0;
+					  	z-index: 1;
+						}
+
+						.dropdown-content a {
+					  	color: black;
+					  	padding: 12px 16px;
+					  	text-decoration: none;
+					  	display: block;
+						}
+
+						.dropdown a:hover {background-color: #ddd;}
+
+						.show {display: block;}
+
+						input[type=text], input[type=password], textarea {
+					  	width: 100%;
+					  	padding: 15px;
+					  	margin: 5px 0 22px 0;
+					  	display: inline-block;
+					  	border: none;
+					  	background: #f1f1f1;
+						}
+						input[type=text]:focus, input[type=password]:focus {
+					  	background-color: orange;
+					  	outline: none;
+						}
+	</style>
+
+	<body> 
+						<table border = "2" cellpadding = "10"> 
+						<tr><td><h2><u>Registration Form</u></h2>
+							
+						<form name="myform" method="post" onsubmit="return test();" >  
+							<label for="Username"><b>Employee Name:</b></label>
+							<input type="text" name="uname" placeholder = "Enter your name"/><br/> <br/>
+					 	
+							<label for="Mob"><b>MobileNo: </b></label>
+							<input type="text" name = "mobilenumber"  placeholder= "0000000000"/><br/><br/>
+
+					 		<label for="Email"><b>Email:  </b></label>
+							<input type="text" name="mailID"/><br/><br/>
+
+
+							<label for="Pass"><b>Password:  </b></label>
+							<input type="password" name="password"/><br/><br/>
+					 	
+							<label for="cnfPass"><b>Confirm Password: </b></label>
+							<input type="password" name="cnfpassword"/><br/><br/>
+
+							<label for="gen"><b>Gender:  </b></label> <br/>
+							<input type="radio" id="male" name="gender" value="male"/>
+							<label for="male">Male</label>
+							<input type="radio" id="female" name="gender" value="female"/>
+							<label for="female">Female</label><br/>
+							<br/>
+							<div>
+								<label> <b>Country :</b></label> 
+								<br/>
+								<select id = "selCountry">
+								<option value="select">--select--</option>
+								<option value="India">India</option>
+								<option value="usa">USA</option>
+								<option value="uk">UK</option>
+								<option value="aus">Australia</option>
+								<option value="canada">Canada</option>
+								<option value="poland">Poland</option>
+								</select>
+							</div>
+							<button class="dropbtn" style="margin-left: 250px">Register</button>
+						</form>
+							</td>
+							</tr>  
+							   
+					  	
+	</body>
+	</html>
+	}

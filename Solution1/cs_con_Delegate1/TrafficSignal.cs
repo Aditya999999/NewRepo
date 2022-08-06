@@ -6,52 +6,40 @@ using System.Threading.Tasks;
 
 namespace cs_con_Delegate1
 {
+    public delegate void TrafficDel();
     internal class TrafficSignal
     {
-        private string signal;
-        private string yellow;
-        private string red;
-        private string green;
 
-        public delegate void TrafficDel();
-        
-        public void Yellow()
+
+
+        public string signal;
+        public static void Yellow()
         {
             Console.WriteLine("Yellow Light Signal To Get Ready");
         }
-        public void Green()
+        public static void Green()
         {
-            Console.WriteLine(" Green Light Signal To Go");
+            Console.WriteLine("Green Light Signal To Go");
         }
-        public void Red()
+        public static void Red()
         {
             Console.WriteLine("Red Light Signal To Stop");
         }
+        TrafficDel[] traffics = new TrafficDel[3];
 
-        public static void IdentifySignals() 
+        public void IdentifySignals() 
         {
-            string[] signal = new string[3] { "Red", "Yellow", "Green" };
+            traffics[0] = new TrafficDel(Yellow);
+            traffics[1] = new TrafficDel(Green);
+            traffics[2] = new TrafficDel(Red);
 
         }
-        public void show(string[] signal)
+        public void show()
         {
-            if (bool.Parse(signal[0]))
-            {
-                Console.WriteLine("Please Stop!!!");
-            }
-            else if (bool.Parse(signal[1]))
-            {
-                Console.WriteLine("Be ready!!!");
-            }
-            else if (bool.Parse(signal[2]))
-            {
-                Console.WriteLine("You can Move!!!!");
-            }
-            else
-            {
-                Console.WriteLine("This color does not exist in Traffic System.");
-            }
-
+            traffics[0]();
+            traffics[1]();
+            traffics[2]();
         }
+        
     }
 }
